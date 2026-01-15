@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chok Siriporn Pork Cracklings | แคบหมูโชคศิริพร</title>
+    <!-- Google Fonts: Kanit -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary-red: #D32F2F;    /* แดงหลัก - กระตุ้นความอยากอาหาร */
+            --primary-green: #00C853;  /* สีเขียวแจ่มๆ สดใส (Vibrant Green) */
+            --accent-green: #64DD17;   /* สีเขียวนีออนสว่าง (Neon Green) */
+            --bg-cream: #FFFBF0;       /* พื้นหลังสีครีมนวล */
+            --text-dark: #212121;
+            --white: #FFFFFF;
+            --line-green: #06C755;
+            --facebook-blue: #1877F2;
+            --tiktok-black: #000000;
+            --light-gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a { text-decoration: none; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--white);
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            /* border: 2px solid var(--primary-green); */
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 4px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            padding: 4px 12px; 
+            border-radius: 16px;
+            cursor: pointer;
+            font-family: 'Kanit', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #666;
+            transition: 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--primary-red);
+            color: white;
+        }
+
+        .btn-cta {
+            background-color: var(--primary-red);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://storage.googleapis.com/choksiripon/asset/pork-cracklings-1.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .badge-location {
+            background: var(--primary-green);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            font-weight: 500;
+            color: white;
+        }
+
+        /* --- FEATURES / ABOUT --- */
+        .section { padding: 80px 10%; }
+        .text-center { text-align: center; }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-green);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px auto;
+            max-width: 1100px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.4s;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .feature-box {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            text-align: center;
+            border-top: 4px solid var(--primary-green);
+            transition: 0.3s;
+        }
+
+        .feature-box:hover { 
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-green); /* เปลี่ยนสีไอคอนเป็นเขียวสด */
+            margin-bottom: 20px;
+        }
+
+        /* --- SOCIAL MEDIA BAR --- */
+        .social-bar {
+            background: var(--primary-green);
+            padding: 60px 10%;
+            text-align: center;
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .bg-line { background-color: var(--line-green); }
+        .bg-fb { background-color: var(--facebook-blue); }
+        .bg-tiktok { background-color: var(--tiktok-black); }
+
+        .social-btn:hover { 
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 80px 5% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-item h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-item h3 i {
+            color: var(--primary-green); /* ไอคอนใน footer เป็นสีเขียวสด */
+        }
+
+        .contact-number {
+            font-size: 1.6rem;
+            color: var(--white);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .contact-number:hover {
+            color: var(--primary-green);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .section { padding: 60px 5%; }
+            .nav-right { gap: 10px; }
+            .btn-cta { padding: 8px 18px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <nav>
+        <div class="logo">
+            <img src="https://storage.googleapis.com/choksiripon/asset/logo.png" alt="โลโก้แคบหมูโชคศิริพร" class="brand-logo-img">
+            <span data-i18n="brand_name">แคบหมูโชคศิริพร</span>
+        </div>
+        
+        <div class="nav-right">
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLanguage('th', event)">TH</button>
+                <button class="lang-btn" onclick="setLanguage('en', event)">EN</button>
+                <button class="lang-btn" onclick="setLanguage('cn', event)">CN</button>
+            </div>
+            <a href="#contact" class="btn-cta" data-i18n="nav_cta">สั่งซื้อเลย</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge-location"><i class="fa-solid fa-map-pin"></i> <span data-i18n="hero_badge">ตลาดจันทร์เพ็ญ จ.สุพรรณบุรี</span></div>
+            <h1 data-i18n="hero_title">กรอบสนั่น มันทุกคำ<br>ทำสดใหม่ทุกวัน</h1>
+            <p data-i18n="hero_subtitle">แคบหมูโชคศิริพร สูตรเด็ด ของดีเมืองสุพรรณฯ</p>
+            <div style="margin-top: 20px;">
+                <a href="#contact" class="btn-cta" style="font-size: 1.2rem; padding: 16px 45px;">
+                    <i class="fa-solid fa-cart-shopping"></i> <span data-i18n="hero_cta">สั่งซื้อทันที</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- FEATURES -->
+    <section id="about" class="section">
+        <div class="text-center">
+            <h2 class="section-title" data-i18n="about_title">ต้นตำรับความกรอบอร่อย</h2>
+            <p data-i18n="about_desc">เราใส่ใจทุกขั้นตอนการผลิต จากตลาดจันทร์เพ็ญ สู่มือคุณ</p>
+            
+            <div class="gallery-grid">
+                <img src="https://storage.googleapis.com/choksiripon/asset/pork-cracklings-2.jpeg" alt="[รูปภาพแคบหมูกรอบๆ]" class="gallery-img">
+                <img src="https://storage.googleapis.com/choksiripon/asset/pork-cracklings-3.jpeg" alt="[รูปภาพการผลิตแคบหมู]" class="gallery-img">
+                <img src="https://storage.googleapis.com/choksiripon/asset/card.jpeg" alt="[รูปภาพนามบัตรติดต่อ]" class="gallery-img" style="object-fit: contain; background: white; padding: 10px;">
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div class="feature-box">
+                <i class="fa-solid fa-fire-burner feature-icon"></i>
+                <h3 data-i18n="feat_1_title">ทอดสดใหม่ทุกวัน</h3>
+                <p data-i18n="feat_1_desc">เราทอดใหม่ๆ ที่หน้าร้านทุกวัน รับประกันความหอม กรอบ ไม่เหม็นหืนแน่นอน</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-boxes-packing feature-icon"></i>
+                <h3 data-i18n="feat_2_title">ปลีก-ส่ง ครบวงจร</h3>
+                <p data-i18n="feat_2_desc">จะซื้อไปทานเล่นถุงเดียว หรือรับไปขายต่อเป็นกิโล เราก็พร้อมบริการในราคามิตรภาพ</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-truck-fast feature-icon"></i>
+                <h3 data-i18n="feat_3_title">ส่งด่วนทั่วไทย</h3>
+                <p data-i18n="feat_3_desc">อยู่จังหวัดไหนก็อร่อยได้ เราแพ็คอย่างดี ส่งด่วนถึงหน้าบ้านคุณ</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-plane-departure feature-icon"></i>
+                <h3 data-i18n="feat_4_title">ส่งต่างประเทศ</h3>
+                <p data-i18n="feat_4_desc">สามารถส่งต่างประเทศโดยเครื่องบินได้ พร้อมบรรจุภัณฑ์ที่แข็งแรง</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA -->
+    <section class="social-bar">
+        <h2 style="margin-bottom: 10px;" data-i18n="social_title">ติดตามโปรโมชั่น & รีวิวความอร่อย</h2>
+        <p data-i18n="social_desc" style="opacity: 0.9;">คลิกเพื่อดูวิดีโอการทอดสดๆ หรือทักแชทสอบถามได้เลย</p>
+        
+        <div class="social-links">
+            <a href="https://tiktok.com/@choksiripornnumber1" target="_blank" class="social-btn bg-tiktok">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+            </a>
+            <a href="https://www.facebook.com/61585988431324" target="_blank" class="social-btn bg-fb">
+                <i class="fa-brands fa-facebook"></i> Facebook
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-item">
+                <h3><i class="fa-solid fa-phone"></i> <span data-i18n="footer_call">โทรสั่งความอร่อย</span></h3>
+                <p data-i18n="footer_call_desc" style="margin-bottom: 20px;">โทรหาเราได้เลย ยินดีให้บริการทุกวัน</p>
+                <a href="tel:0649561966" class="contact-number">064-956-1966</a>
+                <a href="tel:0980528706" class="contact-number">098-052-8706</a>
+            </div>
+
+            <div class="footer-item">
+                <h3><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer_addr">ที่อยู่ร้าน</span></h3>
+                <p style="line-height: 1.8;">
+                    <strong data-i18n="brand_name" style="color: white;">แคบหมูโชคศิริพร</strong><br>
+                    <span data-i18n="addr_1">ตลาดจันทร์เพ็ญ</span><br>
+                    <span data-i18n="addr_2">อำเภอหนองหญ้าไซ จังหวัดสุพรรณบุรี</span><br>
+                    72240
+                </p>
+                <br>
+                <a href="https://maps.app.goo.gl/wAHYNfA7v26tm1pL9" target="_blank" style="color: var(--primary-green); font-weight: 500;">
+                    <i class="fa-solid fa-map-location-dot"></i> <span data-i18n="view_map">เปิดใน Google Maps</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2024-2026 Chok Siriporn Pork Cracklings. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- LANGUAGE SCRIPT -->
+    <script>
+        const translations = {
+            th: {
+                brand_name: "แคบหมูโชคศิริพร",
+                nav_cta: "สั่งซื้อเลย",
+                hero_badge: "ตลาดจันทร์เพ็ญ จ.สุพรรณบุรี",
+                hero_title: "กรอบสนั่น มันทุกคำ<br>ทำสดใหม่ทุกวัน",
+                hero_subtitle: "แคบหมูโชคศิริพร สูตรเด็ด ของดีเมืองสุพรรณฯ",
+                hero_cta: "สั่งซื้อทันที",
+                about_title: "ต้นตำรับความกรอบอร่อย",
+                about_desc: "เราใส่ใจทุกขั้นตอนการผลิต จากตลาดจันทร์เพ็ญ สู่มือคุณ",
+                feat_1_title: "ทอดสดใหม่ทุกวัน",
+                feat_1_desc: "เราทอดใหม่ๆ ที่หน้าร้านทุกวัน รับประกันความหอม กรอบ ไม่เหม็นหืนแน่นอน",
+                feat_2_title: "ปลีก-ส่ง ครบวงจร",
+                feat_2_desc: "จะซื้อไปทานเล่นถุงเดียว หรือรับไปขายต่อเป็นกิโล เราก็พร้อมบริการในราคามิตรภาพ",
+                feat_3_title: "ส่งด่วนทั่วไทย",
+                feat_3_desc: "อยู่จังหวัดไหนก็อร่อยได้ เราแพ็คอย่างดี ส่งด่วนถึงหน้าบ้านคุณ",
+                feat_4_title: "ส่งต่างประเทศ",
+                feat_4_desc: "สามารถส่งต่างประเทศโดยเครื่องบินได้ พร้อมบรรจุภัณฑ์ที่แข็งแรง",
+                social_title: "ติดตามโปรโมชั่น & รีวิวความอร่อย",
+                social_desc: "คลิกเพื่อดูวิดีโอการทอดสดๆ หรือทักแชทสอบถามได้เลย",
+                footer_call: "โทรสั่งความอร่อย",
+                footer_call_desc: "โทรหาเราได้เลย ยินดีให้บริการทุกวัน",
+                footer_addr: "ที่อยู่ร้าน",
+                addr_1: "ตลาดจันทร์เพ็ญ",
+                addr_2: "อำเภอหนองหญ้าไซ จังหวัดสุพรรณบุรี",
+                view_map: "เปิดใน Google Maps"
+            },
+            en: {
+                brand_name: "Chok Siriporn",
+                nav_cta: "Order Now",
+                hero_badge: "Chan Pen Market, Suphan Buri",
+                hero_title: "Ultimate Crispy & Tasty<br>Freshly Made Every Day",
+                hero_subtitle: "Chok Siriporn's Secret Recipe. The Best from Suphan Buri.",
+                hero_cta: "Shop Now",
+                about_title: "The Original Crispy Taste",
+                about_desc: "Carefully produced from our local market to your doorstep.",
+                feat_1_title: "Fresh Daily",
+                feat_1_desc: "Freshly fried at our shop every day. Guaranteed crispy, fragrant, and never oily.",
+                feat_2_title: "Retail & Wholesale",
+                feat_2_desc: "Buy a snack or bulk orders for your business. We offer the best friendly prices.",
+                feat_3_title: "Nationwide Delivery",
+                feat_3_desc: "Wherever you are in Thailand, we deliver fresh to your home.",
+                feat_4_title: "Global Shipping",
+                feat_4_desc: "International air shipping available with secure packaging.",
+                social_title: "Follow for Promo & Reviews",
+                social_desc: "Watch our live cooking videos or chat with us for more info.",
+                footer_call: "Order by Phone",
+                footer_call_desc: "Give us a call. We're ready to serve you daily.",
+                footer_addr: "Our Location",
+                addr_1: "Chan Pen Market",
+                addr_2: "Nong Ya Sai, Suphan Buri",
+                view_map: "Open Google Maps"
+            },
+            cn: {
+                brand_name: "Chok Siriporn 炸猪皮",
+                nav_cta: "立即订购",
+                hero_badge: "素攀武里府 Chan Pen 市场",
+                hero_title: "极致酥脆 美味每一口<br>每日新鲜制作",
+                hero_subtitle: "Chok Siriporn 秘制配方，来自素攀武里府的精品。",
+                hero_cta: "立即订购",
+                about_title: "正宗酥脆风味",
+                about_desc: "从市场到您的手中，我们用心完成每一个生产步骤。",
+                feat_1_title: "每日新鲜现炸",
+                feat_1_desc: "每天在店里现炸，保证香脆、新鲜、无油烟味。",
+                feat_2_title: "零售与批发",
+                feat_2_desc: "无论是一包零食还是商业批发，我们都以优惠的价格为您服务。",
+                feat_3_title: "泰国全境配送",
+                feat_3_desc: "无论您ใน泰国的哪个府，我们都为您送货上门。",
+                feat_4_title: "国际运输",
+                feat_4_desc: "支持国际空运，配备坚固的出口包装。",
+                social_title: "关注促销与评价",
+                social_desc: "点击观看现场制作视频或直接联系เรา咨询。",
+                footer_call: "电话订购",
+                footer_call_desc: "欢迎随时致电，我们每天为您服务。",
+                footer_addr: "门店地址",
+                addr_1: "Chan Pen 市场",
+                addr_2: "素攀武里府 Nong Ya Sai",
+                view_map: "打开 Google 地图"
+            }
+        };
+
+        function setLanguage(lang, event) {
+            // Update Text content based on data-i18n attributes
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update Active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Set HTML lang for accessibility
+            document.documentElement.setAttribute('lang', lang);
+        }
+    </script>
+</body>
+</html>
